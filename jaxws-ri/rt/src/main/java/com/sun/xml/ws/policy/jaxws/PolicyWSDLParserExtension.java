@@ -791,7 +791,9 @@ final public class PolicyWSDLParserExtension extends WSDLParserExtension {
                                         ,operationName));
                             } // endif for portType:operation scope
                             // end operation scope
-
+                            if (null == operation) {
+                                continue;
+                            }
                             final EditableWSDLInput input = operation.getInput();
                             if (null!=input) {
                             	EditableWSDLMessage inputMsg = input.getMessage();

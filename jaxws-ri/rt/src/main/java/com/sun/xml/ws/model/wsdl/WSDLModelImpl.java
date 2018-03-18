@@ -176,6 +176,9 @@ public final class WSDLModelImpl extends AbstractExtensibleImpl implements Edita
             return;
         for (EditableWSDLBoundOperation bop : boundPortType.getBindingOperations()) {
             WSDLOperation pto = pt.get(bop.getName().getLocalPart());
+            if (null == pto) {
+                continue;
+            }
             WSDLMessage inMsgName = pto.getInput().getMessage();
             if(inMsgName == null)
                 continue;

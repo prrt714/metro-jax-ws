@@ -332,6 +332,9 @@ public final class WSDLBoundOperationImpl extends AbstractExtensibleImpl impleme
             requestPayloadName = new QName(ns, name.getLocalPart());
             return requestPayloadName;
         }else{
+            if (null == operation) {
+                return null;
+            }
             QName inMsgName = operation.getInput().getMessage().getName();
             EditableWSDLMessage message = messages.get(inMsgName);
             for(EditableWSDLPart part:message.parts()){
